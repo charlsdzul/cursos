@@ -1,0 +1,248 @@
+########################################################
+############# EDTEAM: CURSO GIT DESDE CERO #############
+########################################################
+
+######################################################## 
+######## 1 Introducción a GIT
+
+*** 1.1 Bitácora del capitán
+
+		¿Cómo tener una buena bitácora?
+		1. Mantener secuencia cronológica
+		2. Registrar la mayor cantidad de posibles eventos
+		3. Describir cada evento lo más detallado
+
+
+*** 1.2 Introducción a GIT
+
+		Es un sistema de control de versiones
+		Qué es una versión: Conjunto de nuevas características y funcionalidades.
+		Versiones menores: características menores, pequeñas. Actualizción punto "." Ej. Windows 10.1, 10.15
+		Linuz Torvals creó GIT
+		Repositorio: Carpeta dentro de nuestro prayecto (.git), todos los registros y cambios de nustro proyecto.
+
+
+*** 1.3 Instalación de GIT	
+
+		Forma diferente para cada SO
+		Windows descargar instalador
+
+
+*** 1.4 Configuración de GIT
+
+		Comandos de configuración
+			git config: ponerle configuraciones a git
+			git config --help: cómo utilizar el comento
+
+			git config --global: configuración para TODOS los repositorios (se puede tambien hacer local(repositorio) o por usuario )
+
+				git config --global user.name "Carlos Dzul" //Quien aportará a la bitácora
+				git config --global user.email "c.dzul@hotmail.com" //Correo del usuario
+
+			git config --list //Configuracion seteada
+			git config --l //Configuracion seteada	
+
+
+*** 1.5 Mi primer repositorio
+
+		Cuando se inicia el repositorio, en nuestra carpeta de proyecto de crea la carpeta .git
+		Cualquier carpeta se puede convertir en repositorio, tenga o no tenga archivos (html, js, php, etc.)
+
+			1) Ubicar carpeta principal
+			2) En consola:	git init //Crear proyecto
+			3) Se crea la carpeta .git como oculta
+
+
+*** 1.6 Los 3 estados de GIT
+
+	1) Espacio de trabajo: Carpeta principal del proyecto, todo lo que "se ve" (NO ES .git). .git NO ES ESPACIO DE TRABAJO
+
+		2) Area de preparación: ¡Le decimos a GIT que le pasamos archivos!
+
+			git status //muestra estatus del repositorio
+
+			untracket files: archivos que no sigue git!
+			Un commit, es un mensaje en nuestra bitácora
+
+			git add nombre_archivo// Agregar archivos untracket al area de preparación desde el area de trabajo
+
+
+*** 1.7 Aprendiendo a escribir commits		
+
+		3) Repositorio (.git)
+
+			git commit //agregar archivos al repositorio!
+			git log //muestra el log de eventos
+
+
+######################################################## 
+######## 2 Primeros pasos
+
+*** 2.1 Opciones de git add y git commit
+
+		Commit: Almacenar archivos en repositorios y ponerles un mensaje
+
+		NOTA: Si modificas un archivo del proyecto, cambiará el estatus de git.
+		Se mostrará lo que se modifícó!
+
+		git add nombre_archivo // Agrega el archivo modificado al area de preparaacion
+		git commit nombre_archivo // Agrega el archivo al repositorio
+		git add . //Todos los archivos dentro de CARPETA ACTUAL (No subcarpetas ni carpeta padre)
+		git commit -m "Commit" //Atajo para poner mensaje din editor
+	
+
+***	2.2 Modificando la estructura del proyecto
+
+		Si se agregan carpetas, GIT lo detecta y hay que hacer add y commit.
+		Si se eliminan archivos, lo mismo.
+
+*** 2.3 Archivos modificados y archivos nuevos
+
+		git commit -am //Evita el add. Solo archivos MODIFICADOS pasarán directo al commit, en un solo paso.
+
+*** 2.4 Deshaciendo cambios realizados
+
+		Eliminar codigo reciente, area de trabajo o de preparacion
+		git checkout nombre_archivo //Elimina lo actualizado!
+		git checkout -f . //Elimina codigo actualizado forzandolo
+
+*** 2.5 Quitando archivos del área de preparación
+
+		Si ya se agregaron archivos al área de preparación, se pueden quitar:
+		git restore	--staged nombre_archivo // Quitar del área de preparación
+
+*** 2.6 Ver cambios realizados en cada archivo
+
+		git diff //Diferencia entre archivo de espacio de trabajo y repositorio
+		git diff --stat //Resumen de diferencias
+
+
+######################################################## 
+######## 3 Ramas locales y el historial
+
+*** 3.1 Historial de cambios
+
+		git checkout num_hash //Restaurar a un commit anterior!
+		git checkout master // Deshacer checkout num_hash
+
+*** 3.2 Opciones de visualizacion del historial	
+
+*** 3.3 Ramas Locales
+
+*** 3.4 Creando ramas locales
+
+		git checkout -b nombre_rama //Creación de rama
+		git branch // Ver todas las ramas
+		git checkout master // Regresar al master
+		git checkout nombre_rama //Cambiar a rama
+		git log --oneline --all //Desde master ver el log de las ramas
+		git log --oneline --all --graph --decorate //Desde master ver el log de las ramas
+
+*** 3.5 Fusionando ramas
+
+		git merge //fusionar rama con master, traes commits de rama a master
+		git branch -D nombre_rama //Eliminar rama desde master
+
+
+######################################################## 
+######## Ramas remotas y trabajo colaborativo
+
+*** 4.1  Resolviendo conflictos
+
+		git merge --abort //Eliminar merge de ramas
+
+
+*** 4.2 Ignorando archivos/carpetas
+
+		1) En carpeta root, crear archivo:    .gitignore
+		2) Editar el archivo y agregar nombres de archivos a ignorar
+		3) Ejemplo de contenido de archivo .gitignore:
+
+			# Este es el listado de archivos que vamos a ignorar
+			requisitos.txt
+			./paginas
+			./estilos
+
+
+*** 4.3 Manejando ramas remotas
+
+		CLONAR REPOSITORIO HTTPS
+
+			git clone url_de_repositorio // Clonar repositorio
+
+		CLONAR REPOSITORIO SSH	
+
+			1) Generar clave publica en consola (solo será para el PC)
+				a) ssh-keygen -t rsa // Generar SSH
+				b) Guardar la llave en PC.
+					Las llaves están en la carpeta seleccionada
+
+			 2) en Gitguh
+				a) Perfil > setting > SSH and GPG keys
+				b) agregar SSH
+				c) pegar el contenido del archivo id_rsa.pub
+
+
+*** 4.4 Subiendo nuestros cambios	
+
+		// Cuando actualicemos nustro codigo local, no se hace automático
+		// Si queremos actualizar el repositorio en la nube, hay que hacer:
+		git push origin master// Subir local a nube/remoto/(origin)	
+
+		git remote -v // Ver el origin o url del repositorio con el que estamos trabajando
+
+		//Actualizar informacion es diferente a traer los archivos
+		git fetch origin -v //Actualizar informacion master-local desde origin/nube
+		git pull origin master // Traer archivos a master-local desde origin/nube
+
+
+*** 4.5 Crear ramas remota
+
+		CREANDO RAMA LOCAL
+
+		1) SUBIRLA A LA NUBE
+			En consola, en la rama:
+				git push origin nombre_rama //Subir rama al origin/nube
+			
+		2) NO SUBIRLA A LA NUBE
+			Solo hay que agregarla MERGE al masterlocal, y luego el master local a la nube. La rama luego se elimina si es necesario.
+
+
+######################################################## 
+######## Herramientas Gráficas
+
+*** 5.1 Eliminando ramas 
+
+		LOCAL
+			Desde el master: git branch -D nombre_rama
+
+		DE LA NUBE
+			Desde el master: git push --delete origin nombre_rama
+
+*** 5.2 Visual Studio code
+	
+		Extension GitLends - Git supercharged	
+	
+
+
+
+
+git log --oneline --all --graph --decorate
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

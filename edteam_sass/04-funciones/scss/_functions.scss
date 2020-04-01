@@ -1,0 +1,4 @@
+@function img($image) {
+  $path: "/img/";
+  @return url($path+$image);
+}

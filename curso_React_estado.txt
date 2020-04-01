@@ -1,0 +1,170 @@
+################################### 1 Estado de la aplicacion
+
+**************** 1.1 Problema a solucionar
+
+**************** 1.2 Presentando flux 
+
+	Flux es la arquitectura de aplicaciones que Facebook usa para crear aplicaciones web del lado del cliente. Complementa los componentes de la vista componible de React utilizando un flujo de datos unidireccional
+
+
+**************** 1.3 Conceptos iniciales 
+
+	STORE
+	Almacena información de la aplicación
+	Los componentes le piden información
+
+	ACTION
+	Define una API interna para la app
+	Son la forma de interactuar con la data-componente
+	Son objetos que tiene una identificacion y la data necesaria para ejecutarse
+
+		{
+		type: "GUARDAR_DATA".
+		data: maleta
+		}
+
+	DISPATCHER
+	Funciones que despachan las ACTION para que el STORE sea moficado
+
+		store.dispatch()
+
+		store.dispatch(
+			{
+			type: "GUARDAR_DATA".
+			data: maleta
+			}
+		)
+
+
+	VIEW
+	Lo que el usuario ve.
+	La vista cambia si el estado cambia	
+
+**************** 1.4 Conpectos adicionales
+
+	INITIAL STORE
+	Objeto para definir cómo inicia el STORE
+
+		{
+		equipaje: [],
+		equipajeCounter:0,
+		capacidad: 100,
+		aerolinea: "EDteam"
+		}
+
+	REDUCER
+	Función encargada de modificar el STORE.
+	Nadie más debe modificar el STORE	
+
+		rootReducer(state, action)
+			state: todo el estado actual almacenado (STORE)
+			action: es el ACTION
+
+
+
+**************** 1.5 Implementaciones (para manejar estado global)
+
+	3 soluciones:
+
+		Redux: Implementa arquitectura Flux
+		Context API: Solución propia de React
+		Mobx: 
+
+
+
+##### 2 Redux
+
+	# 2.1 Conceptos
+		* Instalar Redux, consola:
+			yarn add redux react-redux
+
+		* STORE tiene que tener un estado inicial
+			* Crear carpeta en src: redux	
+			* Hay que conectar la app con el estado global
+
+
+
+##### 3 Usando Redux en React
+
+	//ACTIONS tienen identificar y data (será para el estado)
+	//DISPATCHERS: transportan las acciones hacia la modificacion del estado
+	//VISTA: Lo que se renderiza
+	//REDUCERS: Encargados de modificar el STORE
+
+
+	<Provider />
+	Componente que provee el flujo de informacion a la aplicacion
+	Recibe como parametro un STORE (createStore para iniciar STORE)
+
+	connect()
+	Nuestros Componentes se conectan al estado global y lo utilizan
+	Usa mapStateToProps: Permite los atributos qu necesitemos leer, sea pasado al componente por medio de propiedades
+	Usa mapDispatchToProps: Permite ejecuitar accion en componente mediante eventos
+	    y estas funciones son recibidas como propiedades
+
+	 ACTIONS
+	 Listado de todas las acciones posibles que se pueden ejecutar en la aplicacion
+	 Listado de puras constanques que equivalen a cadenas de textos
+
+	 ACTIONS_CREATORS
+	 Funciones que recxiben data de los componentes, o de donde haya sido despachada la accion,
+	 y devuelven el objeto necesario de la accion (con tipo y data)
+
+	 combineReducers()
+	Nos permiten dividir el STORE y usar otras diviones del estado
+
+	 ReduxDevTools
+
+	appllyMiddleware
+	Permite aplicar middlewares a nuestras acciones, antes de que terminen de procesar
+	como peticiones axios
+
+	redux-thunk
+	middleware para peticiones
+
+
+
+##### 4 Context API: Conceptos iniciales
+
+	# 4.1 Conceptops de Context API
+
+		* Context API
+			Permite compartir informacion (data) entre nuestros componentes
+			Para acceder a la información, tiene que ser hijo
+
+		* Context
+			Data centralizada a la que queremos acceder desde cualquier componente
+
+		* CreateContext	
+			Método de REACT que permite crear un contexto
+			Puede recibir data inicial (como en Redux y el Store)
+
+		* Provider	
+			Componente que permite proveer data desde el CONTEXT a la app
+
+		* Consumer
+			Componente que permite consumir data del CONTEXT y presentarla a la vista
+
+		* USO
+		
+			1) Se crea el Context (ej CoursesContext.js)
+			2) Se crea el proveedor (ej CoursesProvider.jsx). Solo almacena data en el Context
+			2.1) El Provider se puede pedir desde App
+			3) En algun componente, se manda a allamar el Context.Cosumer para consumir:
+				 <CoursesContext.Consumer>
+			        {context => <CourseGrid courses={context.courses} />}
+			      </CoursesContext.Consumer>
+
+
+
+##### 6 MobX y conclusiones
+
+	# 6.1 Instalacion y configuracion de MobX
+		* Observables
+		* Computed Values
+		* Actions
+		* Observer
+		* Inject
+
+	# 6.4 Ventajas y desventajas
+		* REDUX (Store, Action, Dispatcher,)

@@ -1,0 +1,52 @@
+/*
+MIXINS: BLOQUES DE CÓDIGO REUTILIZABLES
+*/
+
+@import "config/variables";
+@import "mixins/mixins";
+
+.button {
+  @include button_mixin;
+}
+
+.button22 {
+  @include button_mixin22($color);
+}
+
+.menu {
+  @include menu(".item", ".link");
+}
+
+.button33 {
+  @include button33(red, green, blue);
+  //Estes parametros, se pueden usar como una lista
+}
+
+.button44 {
+  @include button44($buttons-colors);
+  //Estos parametros, se pueden usar como una lista
+}
+
+.menu {
+  @include menu11 {
+    background-color: gray;
+  }
+
+  .link {
+    color: green;
+  }
+}
+
+//MIXINS CON MEDIAQUERY
+body {
+  background-color: red;
+  @include mq(400px) {
+    //Para definir valores en la llamada includ
+    //en la creacoin del mixin hay que poner @content
+    background-color: green;
+  }
+
+  @include mq(1000px) {
+    background-color: orange;
+  }
+}

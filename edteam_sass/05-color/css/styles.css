@@ -1,0 +1,26 @@
+/*
+FUNCIONES SASS para color
+
+  RGB
+    red($color)
+    green($color)
+    blue($color
+
+   HSL
+    hue($color) 
+    saturation($color) 
+    ligth($color) 
+
+*/
+body {
+  color: #00aaff;
+  color: #005580;
+  color: #002233;
+  red: 242;
+  green: 242;
+  blue: 13;
+  h: 229.5deg;
+  s: 74.0740740741%;
+  l: 21.1764705882%;
+  color: #000;
+}

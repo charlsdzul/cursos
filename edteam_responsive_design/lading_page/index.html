@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Semantic UI CDN</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="/jquery-nice-select-1.1.0/css/nice-select.css"
+    />
+  </head>
+  <body>
+    <select class="ui dropdown">
+      <option value="">Gender</option>
+      <option value="1">Male</option>
+      <option value="0">Female</option>
+    </select>
+
+    <div class="ui left icon input loading">
+      <input type="text" placeholder="Search..." />
+      <i class="search icon"></i>
+    </div>
+    <div class="ui card">
+      <a class="image" href="#">
+        <img src="/images/avatar/large/steve.jpg" />
+      </a>
+      <div class="content">
+        <a class="header" href="#">Steve Jobes</a>
+        <div class="meta">
+          <a>Last Seen 2 days ago</a>
+        </div>
+      </div>
+    </div>
+
+    <select>
+      <option data-display="Select">Nothing</option>
+      <option value="1">Some option</option>
+      <option value="2">Another option</option>
+      <option value="3" disabled>A disabled option</option>
+      <option value="4">Potato</option>
+    </select>
+
+    <footer></footer>
+  </body>
+
+  <script
+    src="https://code.jquery.com/jquery-3.1.1.min.js"
+    crossorigin="anonymous"
+  ></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+  <script>
+    $(".ui.dropdown").dropdown();
+  </script>
+
+  <script src="/jquery-nice-select-1.1.0/js/jquery.nice-select.js"></script>
+
+  <script>
+    $(document).ready(function() {
+      $("select").niceSelect();
+    });
+  </script>
+</html>

@@ -1,0 +1,49 @@
+Tipos de instalación NPM
+
+1) npm install nombre-paquete 
+    // No recomendado. Lo instala en la carpeta donde se ejecuta
+
+2) npm install nombre-paquete -g
+    // Global: instala en el sistema. En Windows= User/AppData/Roaming/npm/node_modules
+    // Herramientas que usaremos para el proyecto, solo son esenciales para desarrollar
+    // Disponibles en cualquier momento
+    // Ej. Sass, que lo usarian todos los proyectos
+
+3) npm install nombre-paquete --save
+    //Como dependencia del proyecto. 
+    // Se guarda en archivo json del proyecto (package.json)
+    // package.json:
+        * Creacion (npm init)
+    // Las dependencias deben estar guardadas en el archivo package.json    
+
+4) npm install nombre-paquete --save-dev //Como dependencia de desarrollo, dependencias opcionales, no perjudican correr la aplicacion
+
+5) npm uninstall nombre-paquete //Desinstalar paquetes
+6) npm uninstall nombre-paquete -g //Desintalar paquetes globales
+
+
+7) npm install // instala las dependencias faltantes, que estén registradas en el package.json
+
+
+
+-------------------------------
+NODE INSPECTOR
+
+
+-------------------------------
+SUPERVISOR 
+(supervisor mi-archivo.js)
+Reinicia programa cuando hay algún cambio
+No hace falta volver a ejecutar 'node' cuando hacemos cambios, pero sí
+se necesita actulizar el navegador para ver cambios
+
+-------------------------------
+NODEMON 
+(nodemon mi-archivo.js)
+Reinicia programa cuando hay algún cambio
+
+
+-------------------------------
+FOREVER 
+(nodemon mi-archivo.js)
+Reinicia programa cuando hay algún cambio

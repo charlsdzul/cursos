@@ -1,0 +1,103 @@
+// @extend
+//Comparte el estilo
+/*Recomendacion: no hay extend de hijos*/
+
+%button{
+    
+    display: inline-block;
+    margin: 1em 0;
+    padding: .5em 1.5em;
+
+}
+
+.button {
+    @extend  %button;
+}
+
+.button-alert{
+    @extend %button;
+    background: red;
+    color:gray;
+}
+
+.button:hover{
+    transform: translateY(-5px);
+}
+/*
+.button.active {
+    @extend .button:hover;
+}*/
+
+
+//CONDICIONALES if, else if, else
+//< > == and or
+$dev: false !default;
+$dev: true;
+
+@if 1>3{
+    * {
+        outline: 1px solid red;
+    }
+} @else if 3<5 and 1==1{
+    *{
+        display:block;
+    }
+} @else {
+    *{
+        color:green;
+    }
+}
+
+//IMPORTACIONES
+$buttons:true;
+$colors:true;
+
+
+@import "colors";
+@import "buttons";
+
+
+//ITERACIONES @for
+//De forma manual sería tedioso, ejemplo:
+.colum-20{
+    width:20%
+}
+
+.colum-50{
+    width: 50%;
+}
+
+//Usando ciclo for, ejemplo de 1 hasta 10 iteraciones
+@for $i from 1 through 5 {
+    .colum-#{$i}{
+        width: $i * 1%;
+    }
+}
+
+
+//ITERACIONES @each
+$colors: red, blue, gray; //Lista
+
+@each $color in $colors{
+
+    .#{$color}{
+        background: $color;
+    }
+
+}
+
+$colors2: ( //Mapa
+    primary:red,
+    secondary:green,
+    tertiary: yellow
+);
+
+@each $key, $value in $colors2{
+    .button-#{$key} {
+        color: $value;
+    }
+}
+
+
+
+

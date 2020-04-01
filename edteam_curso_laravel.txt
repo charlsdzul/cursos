@@ -1,0 +1,81 @@
+########################################################
+############# EDTEAM: CURSO LARAVEL #############
+########################################################
+
+######################################################## 
+######## 1 Introducción 
+
+######################################################## 
+######## 2 Conociendo laravel
+
+*** 2.1 Introduccion a vagrantbox y homestead
+
+		Para trabajar con Laravl se requiere mínimo la versión 7.
+		Podemos usar WAMP, XAMP.
+		HOMESTEAD es un ambiente para trabajar con Laravel
+		VAGRANT genera una máquina virtual
+
+*** 2.2 Instalación de vagrant Box
+
+		1) Instalar VirtalHost (o VirtualBox)
+		2) Instalar Vagrant
+
+
+*** 2.3 Instalación y configuración de homestead	
+
+		Homestead es un lugar de WAMP, XAMP, pero no es obligatorio
+		Ventaja de poder tener varios proyectos con varias versiones
+			
+		3) En consola (Windows) instalar Homestead:
+			vagrant box add laravel/homestead
+
+			a) Después, elegir la maquina virtual
+			b) Se instalará todo el entorno (php,mongo, gins,node) todo lo necesario para el ambiente laravel!
+
+		4) Clonado de github	
+			En consola Git en maquina especifica:
+				git clone https://github.com/laravel/homestead.git ~/Homestead
+
+		5) Instalar Composer
+			En consola Windows:		
+				composer global require laravel/instaler
+
+		6) Crear proyecto laravel
+			En consola Windows:
+				laravel new myproject
+
+					¿ERROR? No hay php 7.1.3? Es porque estamos en maquina local!
+					Hay que ir maquina virtual!
+
+						En consola Windows levantar vagrant:
+						vagrant up
+
+						Después:
+						vagrant ssh
+
+						Después sitiarse en carpeta code:
+						cd code
+
+						Después crear proyecto nuevamente
+						laravel new nombre_proyecto
+
+
+
+FUNCIONA:
+	//Ejecutar en carpeta local (la de siempre) donde se descargo el git
+	En carpeta /c/Desarrollo/ed_curso_laravel/homestead_myproject/homestead
+		vagrant up
+		vagrant ssh
+
+	//CREAR PROYECTO en carpeta code
+		cd code
+		composer create-project laravel/laravel nombre_Carpeta
+
+					
+
+
+
+
+
+
+

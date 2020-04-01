@@ -1,0 +1,30 @@
+#### Curso NODE.js
+
+# V_01
+	◘ Node 
+		• Es JS
+		• Es backend
+		• Base de datos NoSQL
+		• Multiplataforma
+		• Asíncrono
+		• Orientado a eventos
+		• Ideal aplicaciones en tiempo real
+		• Usado por (Walmart, Paypal, Yahoo, Linkedin, eBay, Uber, etc)
+
+	◘ V8 
+		• Definie su sintaxis
+		• Es el compilador que lo interpreta y ejecuta
+
+	◘ NodeJS
+		• Tiene mecanismos para interactuar con el exterior
+		• Librerias estandar
+		• Utilidades
+
+	◘ Comparativa
+
+				| LENGUAJE 	| MOTOR 	| ENTORNO 		| FRAMEWORKS
+		------------------------------------------------------------
+		NodeJS 	| Javascrip | V8 		| Mód. del core	| Express
+		Ruby	| Ruby 		| YARV		| Lib. Estandar | Rails
+		Python	| Python	| cPython	| Lib. Estandar | Django
+		PHP		| PHP		| Apache	| Lib. Estandar | Laravel

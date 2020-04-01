@@ -1,0 +1,87 @@
+/*Recomendacion: no hay extend de hijos*/
+.button-alert, .button {
+  display: inline-block;
+  margin: 1em 0;
+  padding: 0.5em 1.5em;
+}
+
+.button-alert {
+  background: red;
+  color: gray;
+}
+
+.button:hover {
+  transform: translateY(-5px);
+}
+
+/*
+.button.active {
+    @extend .button:hover;
+}*/
+* {
+  display: block;
+}
+
+.primary {
+  background-color: blue;
+}
+
+.button {
+  color: olive;
+}
+
+.buttonSmall {
+  color: red;
+}
+
+.colum-20 {
+  width: 20%;
+}
+
+.colum-50 {
+  width: 50%;
+}
+
+.colum-1 {
+  width: 1%;
+}
+
+.colum-2 {
+  width: 2%;
+}
+
+.colum-3 {
+  width: 3%;
+}
+
+.colum-4 {
+  width: 4%;
+}
+
+.colum-5 {
+  width: 5%;
+}
+
+.red {
+  background: red;
+}
+
+.blue {
+  background: blue;
+}
+
+.gray {
+  background: gray;
+}
+
+.button-primary {
+  color: red;
+}
+
+.button-secondary {
+  color: green;
+}
+
+.button-tertiary {
+  color: yellow;
+}

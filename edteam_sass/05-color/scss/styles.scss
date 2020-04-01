@@ -1,0 +1,41 @@
+// Colores
+
+/*
+FUNCIONES SASS para color
+
+  RGB
+    red($color)
+    green($color)
+    blue($color
+
+   HSL
+    hue($color) 
+    saturation($color) 
+    ligth($color) 
+
+*/
+
+$color-base: olive;
+$color-dark: #000;
+$color-lighten: #fff;
+
+@function color-text() {
+  @if lightness($color-base) > 40 {
+    @return $color-lighten;
+  }
+  @return $color-dark;
+}
+
+body {
+  color: hsl(200, 100, 50);
+  color: hsl(200, 100, 25);
+  color: hsl(200, 100, 10);
+  red: red(hsl(60, 90, 50)); //Obtener el rojo de un color
+  green: green(hsl(60, 90, 50)); //Obtener el verde de un color
+  blue: blue(hsl(60, 90, 50)); //Obtener el azul de un color
+  h: hue(rgb(14, 28, 94)); //Obtener el azul de un color
+  s: saturation(rgb(14, 28, 94)); //Obtener el azul de un color
+  l: lightness(rgb(14, 28, 94)); //Obtener el azul de un color
+
+  color: color-text();
+}

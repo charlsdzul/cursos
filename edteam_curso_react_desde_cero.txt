@@ -1,0 +1,181 @@
+############## EDTEAM: CURSO REACT.js DESDE CERO ##############
+
+************** 1 COMENZANDO CON REACT
+
+*******1.1 ¿Qué es React.js?
+
+	Es una librería para construir interfaces
+	No es un framework
+	En el modelo MVC, solo se enfoca en la Vista (no en modelo ni controlador)
+	Propósito: Interfaz
+
+
+*******1.2 Virtual DOM
+
+	DOM (Document Object Modelo): Estructura que representa nuestro ducumento html en el navegador. Como forma de arbol
+	Virtual DOM: Copia exact del DOM. React copia el DOM y guarda en memoria
+		El usuario solo ve el DOM REAL, en memoria está el virtual DOM
+
+*******1.3 Pensando en componentes
+
+	Componente: Pieza de código reutilizable.
+	Un componente puede tener componentes hijos.
+
+
+*******1.4 Instalando mi primera app
+
+	1) Instalar nodejs
+	2) Libreria para crear toda la estructura de un proyecto react: Create React App
+		CONSOLA nodejs: npx create-react-app nombre-carpeta
+
+		// create-react-app: También crea automatico el proyecto en GIT!
+
+
+	Carpetas del proyecto REACT
+		node_modules: dependencias que necesita el proyecto para funcionar
+		public: la que usa el navegador
+		src: código fuente del proyecto
+		.gitignore : archivos que no seguirá git
+		package.json: objeto js
+
+	3) npm start: correr el proyecto!	
+
+
+*******1.5 Dependencias
+
+	Librerías (node_modules) que se requieren para el funcionamiento del proyecto React
+
+
+*******1.6 Scripts
+
+	En el package.json del proyecto "scripts"
+
+	YARN: Manejador de dependcias (como NPM)
+	Instalar YARN: npm install -g yarn
+
+	USO de yarn:
+		yarn start //iniciar proyecto en navegador!
+		yarn build //Preparar para subir a produccion
+		yarn test //
+		yarn eject
+
+
+*******1.7 Recomendaciones		
+
+	
+
+
+************** 2 JSX
+
+******* 2.1 Integrando EDgrid
+
+	npm add nombre_dependencia //Instalar dependencias a nuestro proyecto
+
+	En nuestro archivo JS, se hace: importe 'ruta/de/estilo.css'
+
+
+******* 2.2 Qué es JSX?
+
+	Es una sintaxis
+	Extensión de Javascript
+	Escribir código como si fuera XML
+	Creada por Facebook
+
+
+	//CREAR COMPONENTES SIN JSX
+
+		//Ubicar elemento root, la base de toda la página
+		const root = document.getElementById('root');
+
+		//React.createElement(componenten, propiedades, hijos);
+		const elemento = React.createElement('h1',{className: "saludo"},"Hola mundo");
+
+		//render(elemento_a_renderizar, lugar_donde_se_inderta)
+		ReactDOM.render(elemento, root);
+
+
+	//CREAR ELEMENTO CON JSX
+
+		//Ubicar elemento root, la base de toda la página
+		const root2 = document.getElementById('root');
+
+		//ReactDOM.render(elemento, root);
+		ReactDOM.render(<h1 className="saludos">Hola Charls</h1>, root2)
+
+
+
+
+
+************** 3 Componentes
+
+*** 3.5
+	
+	Existen dos tipos de componentes:
+		1) Los que solo reciben propiedades, procesan y las muestran. Son Funcionales.
+		2) Los de Clase.
+
+
+************** 5 REACT ROUTER
+
+*** 5.2 Introduccion e Instalacon de react Router
+
+	La dependencia React Router sirva para gestionar las rutas de nuestra aplicacion.
+
+	En la carpeta del proyecto, consola nodejs.:
+		yarn add react-router-dom --save
+
+*** 5.3 Declarando Router y Rutas
+
+	Router es un componente que tiene dentro de si las rutas:
+	
+		import {BrowserRouter as Router, Route} from 'react-router-dom'
+
+		const App = () => (
+		  <Router>
+		    <Route path="/" exact component={Banner}/> 
+		    <Route path="/cursos" exact component={CourseGrid}/> 
+		    <Route path="/formulario" exact component={ () => <Formulario name="Pagina de Contacto"/> }/> 
+		  </Router>
+		);
+
+
+************** 6 PETICIONES HTTP
+
+*** 6.1 Atomic Design
+
+		Es una filosofía de cómo distribuir nuestros componentes en un proyecto.
+		Cómo estructurar nuestros componentes.
+		Metología para crear sistemas de diseño. Tiene 5 niveles:
+			• Atomos (componentes más pequeños, indivisibles)[labels, inputs, buttons]
+			• Molecules (conjunto de átomos)[Buscador + botón buscar]
+			• Organisms (conjunto de moléculas)[header con menú y buscador]
+			• Templates
+			• Pages
+
+*** 6.5 Peticiones API REST
+
+		No importa el lenguaje de backend. (PHP, etc.)
+		A react "no le interesa" donde se hace las peticiones
+		Solo le interesa los "endpoints"
+
+		Herramienta POSTMAN
+			Hacer peticiones a APIS, para probar si las URL funcionan correctamente
+
+
+************** 8 Hooks
+
+*** 4.1 
+
+
+
+
+
+
+
+
+
+
+
+
+
+

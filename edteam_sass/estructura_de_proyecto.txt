@@ -1,0 +1,24 @@
+FORMAS DE ESTRUCUTRAR UN PROYECTO
+
+Estructura SMACSS
+http://smacss.com/
+
+base (etiquetas HTML)
+modulos (componentes reutilizables: botones, menus, tarjetas, etc.)
+layout (geometría y posición)
+theme (tipografía y color, identidad visual de la marca)
+estado(elementos que cambian)
+
+Estructura ITCSS
+https://www.arsys.es/blog/programacion/itcss-mejores-practicas-css/
+Settings. Declararemos las variables y los preprocesadores, y las situaremos en esta carpeta.
+Tools. Los mixins y funciones, junto con los preprocesadores, irán en esta carpeta.
+Generic. El código genérico del proyecto, el reset de CSS, el Normalize o tus propios estilos, son los que incluiremos en esta carpeta.
+Element. Para  los estilos que afectan a los elementos del HTML. No incluiremos el estilo para las clases.
+Object. Aquí sí, incorporaríamos las clases y colocaríamos todo lo relacionado con el layout.
+Components: Todo lo que afecte a los diferentes bloques de nuestro documento, navegador, botones, recuadros de utilidades, migas de pan, cabecera, buscador, botones sociales, etc., debería de ir en esta carpeta. Dependiendo de las necesidades que tenga el proyecto, la carpeta Components tendrá más o menos ajustes, como es lógico
+Utilities. Para finalizar, en esta carpeta colocaríamos utilidades que sobrescriban estilos significativos (incompatibilidades con navegadores, por ejemplo).
+
+Estructura SASS 7-1
+https://gist.github.com/rveitch/84cea9650092119527bc
+https://github.com/HugoGiraudel/sass-boilerplate

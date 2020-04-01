@@ -1,0 +1,172 @@
+##### 1 El DOM
+
+    # 1.1 El DOM
+
+    # 1.2 Nodos
+    	-Un node es un elemento: h1, h2, ul, il, div, etc.
+
+    # 1.3 Seleccionar nodos
+    	- document.getElementById('id_de_elemento_html')	
+    	- document.querySelector('#title') // selector CSS
+    	- document.querySelectorAll('ul li') // selector CSS. Devuelve lista, no arreglo
+
+    	Buscar dentro der un elemento.
+    	- document.getElementById('list').querySelectorAll('li') Selecciona elemento list, y luego sus hijos	
+
+    #  1.4 
+    Colecciones de nodos
+    	- document.getElementByTagName('li') //Devuelve Lista de nodos
+    	- document.querySelectorAll('li') // HTMLcolection
+    		* todo elemento es un nodo, pero un nodo no siempre es un elemento *
+
+    	- Recorrer una List
+    		const nodeList = document.querySelectorAll('li')
+    			for (let el of nodeList){
+    			if(el.textContent.trim().toUpperCase()==='STRING'){
+    				el.remove()
+    			}
+    			}
+
+    	- Se puede convertir a un array	
+    		const nodeList = Array.from(document.querySelectorAll('li'))
+    			nodelist.map (el => el.style.background='yellow')
+
+
+   	# 1.5 Atributos
+
+   		-Obtener atributo de un elemento
+   		const title = document.getElementById('id_de_elemento_html')
+   			console.log(title.getAttribute('class'))
+
+   		- Setear atributo a elemento
+   		const title = document.getElementById('id_de_elemento_html')
+   			title.setAttribute('atributo', 'nombre')
+   			title.setAttribute('id', 'titulo-principal')
+
+   		- Obtener Lista de clase	
+   		const title = document.querySelector('h1')
+   		console.log(title.classList)
+   			title.classList.add('main-title', 'title-page')
+   			title.classList.remove('main-title')
+   			title.classList.toggle('main-title')
+
+
+   	# 1.6 Contenido
+
+   		Lo que está dentro de un elemento	
+
+   		const title = document.querySelector('h1')	
+   			console.log(title.textContent) // Devuelve texto, todo el elemento y subniveles. Recomendado en luhar de innerHTML
+   			console.log(title.innerHTML) // Devuelve HTML
+			console.log(title.outerHTML) // Devuelve el elemento
+
+		- Escribir HTML
+
+			title.textContent ='Hola Mundo' //Solo escribe texto, no html!!!
+			title.textContent ='<h1>Hola Mundo</h1>' //Literal muestra lo mismo
+			title.innerHTML =`<h1>Hola Mundo</h1>` // Agrega HTML!
+
+
+	# 1.7 Crear Elementos en el DOM
+
+		- document.createElement()
+
+			const nombre = document.createElement('h1') // Creado el elemento vacion
+					nombre.textContent = 'Carlos' //Agregarle texto al elemento
+					nombre.classList.add('teacher')
+
+					document.body.appendChild(nombre) //Ahora sí, agregarlo al DOM!
+
+
+
+##### 3 Manipular el DOM
+
+    # 3.1 DOM traversing
+
+    	- Recorrido del DOM y encontrar un elemento
+
+    	- HIJOS
+
+    		* console.log(parent.childrenNodes) // Solo Hijos
+    		* console.log(parent.children) // Solo Hijos
+    		* console.log(parent.firstChild) // Solo nodos Hijos
+    		* console.log(parent.firstElementChild) // Solo elementos Hijos
+    		* console.log(parent.lastChild) // Solo nodos Hijos
+    		* console.log(parent.lastElementChild) // Solo elementos Hijos
+    		* console.log(parent.hasChildNodes) // Devuelve true o false, tiene hijos o no
+
+    	- HERMANOS
+
+    		* console.log(parent.nextSibling) // Solo hermanos nodos
+    		* console.log(parent.nextElementSibling) // Solo hermanos elementos
+    		 console.log(parent.previousSibling) // Solo hermanos nodos
+    		* console.log(parent.previousElementSibling) // Solo hermanos elementos
+
+    	- PADRE
+
+    		* console.log(son.parentNode) // Solo nodo padre
+    		* console.log(son.parentElement) // Solo elemento padre
+    	
+
+    # 3.2 insertBefore()
+
+    	- Insertar elementos antes
+
+    	- appendChild() tambien agrega elementos al final de un elemento seleccionado
+
+    	- insertBefore('new_element', 'elemento_seleccionado')  //Agregar antes de un elemento
+
+
+    # 3.3 Ejercicio con insertBefore()
+
+    # 3.4 insertAdjacent()
+
+    	- Insertar elementos
+
+    	- parent.insertAdjacentElement('beforebegin', 'elemento')
+
+    	- beforebegin // hermano anterior
+    	- afterbegin // primer hijo
+    	- beforeend // ultimo hijo
+    	- afterend // hermano siguiente
+
+    	- parent.insertAdjacenttEXT('beforebegin', 'Hola!')
+    	- parent.insertAdjacentHTML('beforebegin', '<h1>Hola!</h1>')
+
+
+    # 3.5 Reemplazar hijos
+
+    	- Reemplaza un hijo por otro nuevo
+
+    	- Mecesita el nuevo elemento, y el elemento a reemplazar
+
+    	- parent.replaceChild(newChild, oldChild)
+
+
+    # 3.6 Métodos de jQuery (parecidos)
+
+    	- Revisar soporte antes de usarlo
+    	- before() // hermano anterior
+    	- after() // hermano siguiente
+    	- prepend() // primer hijo
+    	- append() // ultimo hijo
+    	- child.replaceWith(newChild) // reemplazar hijos
+
+    # 3.7 Clonar y Eliminar
+
+    	- 
+
+
+    # 3.8 Crear elementos y fragmentos
+
+    # 3.9 Templates (HTML)
+
+    # 3.10 CSDOM
+
+
+
+   		- Validar la existencia de un elemento
+   			if(title){
+   			 .....
+   			}
+   			

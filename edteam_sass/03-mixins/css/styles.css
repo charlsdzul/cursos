@@ -1,0 +1,65 @@
+@charset "UTF-8";
+/*
+MIXINS: BLOQUES DE CÓDIGO REUTILIZABLES
+*/
+.button {
+  display: inline-block;
+  margin: 1em;
+}
+.button a {
+  color: 0;
+}
+
+.button22 .button22 {
+  display: inline-block;
+  margin: 1em;
+}
+.button22 a {
+  color: yellowgreen;
+}
+
+.menu {
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-left: 0;
+  list-style: none;
+}
+.menu .item {
+  color: blue;
+}
+.menu .link {
+  color: gray;
+}
+
+.button33 {
+  color: red;
+  background-color: green;
+}
+
+.button44 {
+  color: red;
+}
+
+.menu {
+  color: red;
+}
+.menu .link {
+  background-color: gray;
+}
+.menu .link {
+  color: green;
+}
+
+body {
+  background-color: red;
+}
+@media screen and (min-width: 400px) {
+  body {
+    background-color: green;
+  }
+}
+@media screen and (min-width: 1000px) {
+  body {
+    background-color: orange;
+  }
+}

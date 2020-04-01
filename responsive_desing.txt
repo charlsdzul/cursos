@@ -1,0 +1,189 @@
+##### 1 Conceptos de RWD
+
+    # 1.1 Concepto
+
+    # 1.2 Viewport
+
+        * Es toda la parte visible del navegador para mostrar la pagina web (debajo del buscador)
+        * Cuando la pagina excede el VP, se pone el scroll
+        * La barra se scroll no es parte del VP
+        * <meta name='viewport' content='_opciones_'>
+            _opciones_:
+                width = device-width (usar ancho del dispositivo)
+                user-scalable= no | yes (permitir hacer zoom) [Se aconseja no bloquear el zoom]
+                initial-scale: 1 (ejemplo)
+                maximun-scale: 2 (ejemplo)
+
+        * VP es diferente de la resolución de la pantalla
+        * VP != resolucion de pantalla (pixel real        )
+    
+    # 1.3 Media Queries
+
+        * Consulta a un medio (pantalla)
+        * min-width: px
+        * max-width: px
+        * orientation: landscape (mas ancho que alto)
+        * min-aspect-radio: 4/3
+
+    # 1.4 Metodología
+    
+        * Mobile First
+            -Empezar con el diseño en teléfono,
+            luego implementar media querys para aumentar
+        * Desktop First
+            -Empezar con el diseño en desktop,
+            luego implementar media querys para disminuir
+        * Content First    
+
+
+
+##### 2 RWD en la práctica
+
+    # 2.1 Unidades Relativas: Porcentade
+        * En RWD debemos dejar los pixeles       
+        
+        * %:
+
+            p {
+            font-size: 2em;
+            background: yellow;
+            margin: 0 auto;
+            width: 75%;
+            }
+
+
+    # 2.2 Unidades relativas: em y rem
+        * em
+            - Relacionadas con el tamaño de fuente del contexto
+            - Toma de referencia el tamaño font del padre o abuelo
+            - Los navegadores ponen por defecto al texto 16px
+            - 1em = 100% del tamaño de fuente del contexto
+            - Recomendado elementos
+
+        * rem    
+            - Tamaño de fuente del root(elemento html)
+            - 1rem = 100% del tamaño del root
+            - No cambia segun el contexto
+            - Recomendado para layout
+
+
+    # 2.3 Unidades de Viewport   
+        * 1vw = 1% del ancho del vieport
+        * 1vh = 1% del alto del vieport
+        * 1vmin = 1% del lado menor del vieport
+        * 1vmax = 1% del lado mayor del vieport
+ 
+        * COMO PONER EL FOOTER HASTA EL FINAL?
+            1) Hay que darle altura al body, que ocupe toda lo alto de la pantalla del 
+                dispositivo (vieport), y el footer estará hasta el final!
+
+                body{
+                min-heigth:100vh;
+                display:flex;
+                flex-direction:column;
+
+                }
+
+                footer{
+                margin-top:auto
+                }
+
+    # 2.5 RWD flexbox   
+
+    # 2.6 RWD css grid    
+
+    # 2.7 Breakpoints
+
+            Puntos de quiebre (TAMAÑOS)
+            Major Breakpoints:
+            Minor Breakoints: Cambios muy específicos     
+
+
+##### 3 Imágenes y veideos responsive
+
+    # 3.1 Videos responsive con css
+
+        * Formato standar 16:9
+
+    # 3.2 Videos responsive con css grid
+
+    # 3.3 Imágenes responsive con css
+
+        img {
+            width: 100%;
+            max-width:100%;
+            heigth: auto;
+
+            }
+
+        * Cargar una imagen segun la resolucion (hd, 4k, etc)
+        
+            Si cuando hay otra dimension se quiere agregar otra imagen, se usa un media query
+
+            .img{
+
+                background: url (url_imagen1.png) center / cover;
+
+                @media screen and (min-width: 640px){
+                background: url (url_imagen2.png) center / cover;
+                }  
+            }  
+
+    # 3.4 Imágenes responsive con picture   
+    
+    # 3.4 Imágenes responsive con srcset
+
+        img y srcset     
+
+##### 4 JavaScript
+
+    # 4.1 CSSOM
+        * DOM: Document Object Model. Modelado de HTML. Conversion a objetos JS
+        * CSSOM: CSS Object Model. Modelado de CSS en HTML. Conversion a objetos JS
+
+            - getComputedStyle() //
+
+
+
+    # 4.2 Propiedad Style
+        * Todo elemento del DOM tiene la pripiedad Style
+        * document.element.style.property = ''     
+
+            forma 1: cambiar una propiedad
+            -document.body.style.backgroundColor = 'style'
+
+            forma 2: cambiar la clase // RECOMENDADA
+            document.body.classList.add ('clase')
+
+            forma 3: Sobreescribiendo a los estilos inline existentes 
+                const styles = `background: green;
+                color: white;
+                margin-top:4em;`
+
+                document.getElementById.setAttribute('style', styles)
+
+            forma 4: Agregando a los estilos inline existentes  
+            document.getElementById('title').style+= `;${styles}`
+
+
+
+    # 4.4 Trabajando con variables CSS     
+
+        * Leer variables
+         (getComputedStyle(document.documentElement).getPropertyValue('--name'))
+
+        * Modificar variables
+        document.documentElement.style.setProperty('--name', 'Bato') 
+
+    # 4.5 Media queries con JS   
+
+        * const mediumBo = matchMedia('(min-width: 800px)') 
+                 const changeColor = mql => {
+                mql.matches 
+                ? document.body.style.background: 'red'
+                : document.body.style.background: 'yellow'
+
+                }
+
+                changeColor(mediumBo)
+                mediumBp.addListener(changeColor)

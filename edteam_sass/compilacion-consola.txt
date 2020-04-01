@@ -1,0 +1,23 @@
+1) tener instalado node
+2) instalar node-sass: npm install -g node-sass
+3) verificar instalacion: node-sass --version
+4) activar compilacion: node-sass carpeta_scss --output carpeta_salida
+5) activar compilacion auto: node-sass --watch carpeta_scss --output carpeta_salida
+
+
+
+FORMAS DE COMPILAR
+
+COMPILAR CSS MINIFICADO, EXPANDIDO...
+--output-style= expanded | compressed | nested
+1) Consola: node-sass scss -o css --output-style=compressed
+
+VER COMENTARIOS
+--source-comments
+1) Consola: node-sass scss -o css --output-style=expandes --source-comments
+
+
+SOURMAPS
+Mapas de origen
+1) Consola: node-sass scss -o css --source-map=true
+

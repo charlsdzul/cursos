@@ -1,0 +1,104 @@
+@charset "UTF-8";
+/*
+
+Lógica de una función con Sass
+@function mi-funcion() {
+  @return $value;
+}
+
+Uso de una función con Sass
+selector{
+    mi-funcion()
+}
+
+*/
+footer {
+  font-size: 2em;
+}
+
+body {
+  font-size: 1.25em;
+}
+
+header {
+  background: url("/img/imagen11.jpg");
+}
+
+/*
+Funciones de Strings
+quote($string)
+unquote($string)
+str-length($string)
+str-index($string)
+*/
+body {
+  border: 1px solid red;
+}
+body::before {
+  content: "SOLID";
+}
+
+.cols-4 {
+  width: 33.3333333333%;
+  font-size: 5;
+}
+
+/*
+ nth($list,n) obtener un elemento
+ index($list, $valor) obtener el indice
+ join($list1, $list2, $list3, separador:space, comma) juntar listas
+ append($list, $value, $separador) agregar elemento a lista
+
+ map-get($map, $key) devuelve e valor del key en el map
+ map-keys() devuelve lista de los keys
+ map-values() devuelve lista de los valores
+ map-has-key($map, $key) devuelve boolean, existe el key en el map?
+ map-merge($map1, $map2) une mapas
+ m
+
+
+*/
+body {
+  border-color: red;
+  border-color: 3;
+  border-color: 1px, solid, red, 1px, dotted, green;
+  border-color: 1px solid red yellow;
+}
+
+footer {
+  color: green;
+}
+
+footer {
+  color: red;
+}
+
+/******************************************
+Funcioes de introspección
+
+Devolver valor del parametro
+inspect()
+
+Tipo de dato
+type-of()
+
+Devuleve la unidad de uin numero
+unit()
+
+Saber si un valor tiene unidad
+unitless()
+
+Saber si existe un mixin, funcion, variable
+mixin-exists(mixin)
+function-exists(function)
+variale-exists(variable)
+global-variable-exists()
+
+
+
+*/
+body {
+  color: orange;
+  color: (primary: green, secondary: red, tertiary: blue);
+  size: "10px";
+}

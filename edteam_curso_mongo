@@ -1,0 +1,463 @@
+######################################################
+############# EDTEAM: CURSO MONGO#############
+########################################################
+
+######################################################## 
+######## 1 Introducción a MongoDB
+
+*** 1.4 Instalacion de mongo DB
+
+		1) Descargar mongo https://www.mongodb.com/download-center/community
+		2) Descargar robomongo https://robomongo.org/download
+
+*** 1.5 Instalacion de robo3t y conexion con mongoDB
+
+		1) en Robo 3t, crear conexion
+		2) Por consola (windows) ejecutar:
+			"C:\Program Files\MongoDB\Server\4.2\bin\mongo.exe"
+
+
+*** 1.6 Comandos básicos de mongoDB
+
+		help //ayuda
+
+
+######################################################## 
+######## 2 Colecciones y documentos
+
+*** 2.1 Primeros pasos con mongoDB
+
+		LazyLoading: No es necesario que el objeto esté creado para hacer referencia a el.
+
+		Una bdd se crear cuando hacemos referencia a ella, cuando se empieze a guardar información!
+
+
+		Shell de Mongo:
+
+		show dbs //Mostrar bases de daros
+		use nombre_base /Usar o crear base de datos
+		db.createCollection('nombre_coleccion') //crear coleccion
+		db.nombre_coleccion.insert({key:'dato'}) //Insertar datos
+		db.coleccion.drop() // Eliminar colección
+		db.dropDatabase() //Eliminar base de datos
+		db.coleccion.find().pretty() //Buscar datos acomodados
+
+		//Buscar datos con llave name y valor 'valor'
+		db.colection.find({name:'valor'})
+
+	//Insertar dato con parámetro
+		db.colection.insert({llave:'valor',llave:'valor'})
+
+	//Insertar dato con parámetro CON OBJECT ID PERSONALIZADO
+		db.colection.insert({
+		_id: 'valor_id_personalizado'
+		llave:'valor',
+		llave:'valor'
+		date: ISODate(), //Funcion que genera una fecha
+		date: ISODate(2020-01-22), //personalizado
+		})
+
+	//Insertar varios registros
+		db.colection.insertMany([
+		{llave:'valor',llave:'valor'},
+		{llave:'valor',llave:'valor'},
+		{llave:'valor',llave:'valor'},
+		])
+
+	//Eliminar datos con llave name y valor 'valor'
+		db.colection.remove({name:'valor'})
+
+	//Eliminar todos los datos de la coleccion
+		db.colection.remove({})
+
+	//Editar sin operadores
+		//plancha los datos...
+		db.colection.update({condicional_a_buscar}, {modificacion_a_realizar})
+		db.colection.update(
+		{user:'usuario4'}, 
+		{email:'t4@test.com'}
+		)
+
+	//Editar con operadores
+	//Actualiza con operador set el dato especifico, no plancha. Si la llave no existe, se agrega!
+		db.alumnos.update(
+		    {tel:656.0}, 
+		    {
+		      $set: {
+		          name: 'Charls'
+		         }
+		    }
+		)
+			
+	//Elimina con operador unset el dato especifico, no plancha. 
+	db.colection.update(
+		db.alumnos.update(
+		    {tel:656.0}, 
+		    {
+		      $unset: {
+		          name: 'Charls'
+		         }
+		    }
+		)
+
+	//Agrega un arreglo a una llave! con operador push el dato especifico, no plancha. 
+	//Si el arreglo ya existe, se agregara el elemento a ese arreglo
+		db.alumnos.update(
+		    {name:'Charls'}, 
+		    {
+		      $push: {
+		          name2: 'a'
+		         }
+		    }
+		)
+
+	//Quitar elemento a un arreglo a una llave! con operador push el dato especifico
+	//Si el arreglo ya existe, se agregara el elemento a ese arreglo
+		db.alumnos.update(
+		    {name:'Charls'}, 
+		    {
+		      $pull: {
+		          name2: 'a'
+		         }
+		    }
+		)		
+		
+
+	//Modificar un valor numerico. Incremental $inc (+ y -)
+	//Arega 300 a valor saldo 
+	db.alumnos.update(
+		    {name:'Charls'}, 
+		    {
+		      $inc: {
+		          saldo: 300
+		         }
+		    }
+		)
+
+	//Modificar TODOS
+	db.alumnos.updateMany(
+		    {}, //Sin valor
+		    {
+		      $inc: {
+		          saldo: 300
+		         }
+		    }
+		)
+
+			//o tambien:
+
+		db.alumnos.update(
+		    {}, //Sin valor
+		    {
+		      $inc: {
+		          saldo: 300
+		         }
+		    },
+		    {
+		    	multi:true
+		    }
+		)	
+	
+
+	//Renombrar una llave	
+	db.alumnos.update(
+		    {name:'Charls'}, 
+		    {
+		      $rename: {
+		          llave_incorrecta: 'llave correcta!'
+		         }
+		    }
+		)
+
+
+######################################################## 
+######## 3 Operadores y consultas
+
+	3.1 Ordenamiento de documentos y contar documentos
+
+		//Ordenar
+			db.alumnos.find().sort({})
+
+		// Ascendente
+			db.alumnos.find().sort({
+			    _id:1
+			    })>
+
+		//Descendente
+			db.alumnos.find().sort({
+		    	_id:-1
+		    	})  
+
+	    //Contar numero de registros
+	    	db.alumnos.find().count()
+
+	    //Contar numero de registros por criterio
+	    	db.alumnos.find({ciudad:'Juárez'}).count()	
+
+
+	3.2 Consultas con expresiones regulares
+		//Que termine con... 'mara$'
+		//Que inicie con ... '^mar'
+
+		//email que inicie con 'test'
+			db.alumnos.find({email:/^test/})
+
+	3.3 Consultas con notacion del punto
+		db.alumnos.find({'set.last':'Dzul'})
+
+
+	3.4 Operadores de comparación
+		//gt: mayor que...
+		db.getCollection('alumnos').find({
+    
+		    age:{
+		        
+		        $gt:25
+		        
+		        }
+		    
+		    })
+
+
+		 		//gt: mayor o igual que...
+		db.getCollection('alumnos').find({
+    
+		    age:{
+		        
+		        $gte:25
+		        
+		        }
+		    
+		    })   
+
+
+		//lt: menor que...
+		db.getCollection('alumnos').find({
+    
+		    age:{
+		        
+		        $lt:25
+		        
+		        }
+		    
+		    })
+
+		//lte: menor que...
+		db.getCollection('alumnos').find({
+    
+		    age:{
+		        
+		        $lte:25
+		        
+		        }
+		    
+		    })
+
+		//eq: igual que...
+		db.getCollection('alumnos').find({
+    
+		    age:{
+		        
+		        $eq:25
+		        
+		        }
+		    
+		    })  
+
+
+		//ne: no igual que...
+		db.getCollection('alumnos').find({
+    
+		    age:{
+		        
+		        $ne:25
+		        
+		        }
+		    
+		    })		
+
+
+		//Buscar información dentro de un arreglo
+		db.getCollection('alumnos').find({
+	      hobbies:{        
+	      $in:['peliculas']        
+	      }    
+	    })
+
+	    //Buscar información dentro de un arreglo
+	    //Si se cumple una de las dos condiciones
+		db.getCollection('alumnos').find({
+	      hobbies:{        
+	      $in:['peliculas', 'hacer ejercicio']        
+	      }    
+	    })
+
+		//Buscar información que esté en un arreglo
+		db.getCollection('alumnos').find({
+	      hobbies:{        
+	      $nin:['comics']        
+	      }    
+	    })	    
+
+		
+		//Buscar información que esté en un arreglo, dos condiciones
+		db.getCollection('alumnos').find({
+	      hobbies:{        
+	      $nin:['comics', 'cocinar']        
+	      }    
+	    })	 
+
+
+	    //Buscar información de valor entre dos rangos
+		db.getCollection('alumnos').find({
+	      balance:{        
+	      $gte: 15,
+          $lte: 30        
+	      }    
+	    })	
+
+
+	    //Buscar información de valor entre dos operadores
+	    db.getCollection('alumnos').find({
+		   balance:{        
+		      $gte: 15,
+	              $lte: 30                      
+		      },
+	           age:{
+	              $gt:20                
+	              }   
+		    })	
+
+
+	3.6 Operadores Lógicos ($not(regex), $nor,$or, $and)
+
+		// Negacion nor
+
+				db.getCollection('alumnos').find({
+				  $nor: [
+				        {
+				         age: {
+				                $gt:20
+				              }
+				        }
+				   ]      
+				})		
+
+		// Or
+		
+				db.getCollection('alumnos').find({
+				  $or: [
+				        {age:{$gt:25}},
+				        {balance:{$eq:10}}
+				   ]      
+				})					
+
+		// And
+
+				db.getCollection('alumnos').find({
+				  $and: [
+				        {age:{$eq:17}},
+				        {balance:{$eq:10}}
+				   ]      
+				})			
+
+	3.7 3.8 Temas Complementarios
+
+		// Type: todos los documentos donde atributo sea igual a (string, number, double,bool, etc)
+
+			db.getCollection('alumnos').find({  
+			    age:{$type:'double'}  
+			})
+
+
+		// Exists: saber si existe un atributo en los documentos
+
+			db.getCollection('alumnos').find({  
+			    country:{$exists:true}  
+			})
+
+		// hex_md5(): encripta cadena a hex_md5	
+
+			db.getCollection('alumnos').update(
+			    {user:'test2'},
+			    {$set: {password:hex_md5('mypass')}}
+			)		
+
+
+
+
+
+
+######################################################## 
+######## 4 SUBDOCUMENTOS
+
+	4.1 Relaciones y subdominios
+		Ralarelacion puede ser embebido en el mismo documentos/registro, o
+		puede ser referenciado
+
+	4.2 Lógica de negocio y entidades
+		La Lógica de negocio es el modelado del funcionamiento de un caso del mundo real
+		Es entender el proceso para para poder automatizarlo
+
+
+		Las entidades son los actores involucrados en el desarrollo del sistemas
+		Las entidades serán las colecciones/tablas
+		Por ejemplo, en Instagram:	Posts, Users, Comments, Hearts, Follows...
+
+
+
+	4.7 Creación de funciones almacenadas
+		Se puedne crear funciones y que solo podrán ejecutarse en la misma sesión
+
+		Pero, se pueden crear funciones para almacenarse en la base de datos:
+
+			db.systems.js.save({ _id: 'nombre_funcion', value: function(a,b){
+
+				//Cuerpo de la funcion
+				//Ejemplo:
+					return a + b
+
+			}})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+db.alumnos.insertMany([
+    {
+    user: 'test1',
+    user_date: ISODate(),
+    email: 'test1@test.com',
+    password: '123456'
+    },
+    
+    {
+        user: 'test2',
+    user_date: ISODate(),
+    email: 'test2@test.com',
+    password: '123456'
+    },
+    
+    {
+    user: 'test3',
+    user_date: ISODate(),
+    email: 'test3@test.com',
+    password: '123456'
+    },
+    {
+    user: 'test4',
+    user_date: ISODate(),
+    email: 'test4@test.com',
+    password: '123456'
+    }
+    ])

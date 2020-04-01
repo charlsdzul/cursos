@@ -1,0 +1,69 @@
+//Definición de mixins
+
+@mixin button_mixin {
+  display: inline-block;
+  margin: 1em;
+
+  a {
+    color: red($color: #000000);
+  }
+}
+
+@mixin button_mixin22($color) {
+  //Uso de parámetro
+  @if $buttons {
+    //$buttons variable externa
+    .button22 {
+      display: inline-block;
+      margin: 1em;
+    }
+
+    a {
+      color: $color;
+    }
+  }
+}
+
+//Tambien puede ser directo: $selector-item:'.item'
+@mixin menu($selector-item, $selector-link) {
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-left: 0;
+  list-style: none;
+
+  #{$selector-item} {
+    color: blue;
+  }
+
+  #{$selector-link} {
+    color: gray;
+  }
+}
+
+//original es @mixin button33($color1, $color2, $color3)
+//Abreviado seria:button33($colors...), se forma una lista
+//En donde se llame al mixin, ahi se ponen todos los colores.
+@mixin button33($colors...) {
+  color: nth($colors, 1);
+  background-color: nth($colors, 2);
+}
+
+//Recibe de parámetro una lista!
+@mixin button44($buttons-colors) {
+  color: map-get($buttons-colors, alert);
+}
+
+@mixin menu11 {
+  color: red;
+
+  .link {
+    @content;
+  }
+}
+
+//MIXINS CON MEDIAQUERY
+@mixin mq($breakpoint) {
+  @media screen and (min-width: $breakpoint) {
+    @content;
+  }
+}

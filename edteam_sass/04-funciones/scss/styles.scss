@@ -1,0 +1,170 @@
+@import "functions";
+
+/*
+
+Lógica de una función con Sass
+@function mi-funcion() {
+  @return $value;
+}
+
+Uso de una función con Sass
+selector{
+    mi-funcion()
+}
+
+*/
+/////////////////////////////////////////////
+@function double($number) {
+  $value: $number * 2;
+
+  @if type-of($number) == number {
+    //Validacion del tipo de dato, number
+    @return $value;
+  }
+}
+
+footer {
+  font-size: double(1em);
+}
+////////////////////////////////////////////
+@function em($px, $base: 16px) {
+  @if type-of($px) == number and unit($px) == "px" {
+    @return $px / $base * 1em;
+  }
+
+  @return null;
+}
+
+body {
+  font-size: em(20px);
+}
+////////////////////////////////////////////
+
+header {
+  background: img("imagen11.jpg");
+}
+////////////////////////////////////////////
+/*
+Funciones de Strings
+quote($string)
+unquote($string)
+str-length($string)
+str-index($string)
+*/
+
+$width: 1px;
+$style: solid;
+$color: red;
+
+body {
+  //unquote, quitar comillas
+  border: unquote($width + " " + $style + " " + $color);
+  &::before {
+    content: to-upper-case(quote($style));
+  }
+}
+
+////////////////////////////////////////////
+// Funciones de número
+//percentage() el porcentaje
+//max() el numero mayor
+//floor() redondea hacia abajo
+//ceil() redondea hacia arriba
+//round() al más cercano
+//random($num_limite) numero aleatorio entre 0 y 1
+
+@function columns($columns, $total-columns) {
+  @return percentage($columns / $total-columns);
+}
+
+.cols-4 {
+  width: columns(4, 12);
+  font-size: random(20);
+}
+
+///////////////////////////////////////////
+//Funcioes de mapas y listas
+/*
+ nth($list,n) obtener un elemento
+ index($list, $valor) obtener el indice
+ join($list1, $list2, $list3, separador:space, comma) juntar listas
+ append($list, $value, $separador) agregar elemento a lista
+
+ map-get($map, $key) devuelve e valor del key en el map
+ map-keys() devuelve lista de los keys
+ map-values() devuelve lista de los valores
+ map-has-key($map, $key) devuelve boolean, existe el key en el map?
+ map-merge($map1, $map2) une mapas
+ m
+
+
+*/
+
+//listas
+
+$border: 1px solid red;
+$border2: 1px dotted green;
+
+body {
+  border-color: nth($border, 3);
+  border-color: index($border, red);
+  border-color: join($border, $border2, comma);
+  border-color: append($border, yellow, space);
+}
+
+//mapas
+$colors: (
+  primary: green,
+  secondary: red,
+  tertiary: blue
+);
+
+footer {
+  color: map-get($colors, primary);
+}
+
+@function color($color-key) {
+  @if map-has-key($colors, $color-key) {
+    @return map-get($colors, $color-key);
+  }
+
+  @return null;
+}
+
+footer {
+  color: color(secondary);
+}
+
+/******************************************
+Funcioes de introspección
+
+Devolver valor del parametro
+inspect()
+
+Tipo de dato
+type-of()
+
+Devuleve la unidad de uin numero
+unit()
+
+Saber si un valor tiene unidad
+unitless()
+
+Saber si existe un mixin, funcion, variable
+mixin-exists(mixin)
+function-exists(function)
+variale-exists(variable)
+global-variable-exists()
+
+
+
+*/
+
+$color: orange;
+$tam: 111px;
+
+body {
+  color: inspect($color);
+  color: inspect($colors);
+  size: 10 + unit($tam);
+}

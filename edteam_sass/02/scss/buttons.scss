@@ -1,0 +1,10 @@
+.button{
+    color:$colorO;
+}
+
+
+@if buttons {
+    .buttonSmall{
+        color:red;
+    }
+}

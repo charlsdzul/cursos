@@ -1,0 +1,187 @@
+######################################################
+############# EDTEAM: UI Design #############
+########################################################
+
+
+##### 2 Fundamentos del diseño UI
+
+	# 2.1 Consistencia
+
+		Debe existir consistencias en los elementos: color, letra, formas, tamaños.
+
+	# 2.2 Estructura y componentes
+
+		Estructura: Cómo se organizan los componentes, crear espacio usable
+		Componentes: Elementos de la interfaz que puede ser repetibles: Menú, logo, botones, etc.
+
+	# 2.3 Interacción
+
+		Toda interacción y manipulación del producto
+
+	# 2.1 Wireframes, Mockups y Prototipos
+
+		Wireframes: estructura general, puede ser dibujada a mano
+		MouckUp: Diseño con imagenes, colores y formas reales del sitio. No tiene interacion
+		Prototipos: Agrega funcionalidad al mockup
+
+
+##### 3 Leyes de Gestalt
+
+	# 3.1 Figura y Fondo
+
+		La figura "arriba" del fondo
+		Debe estar bien diferenciada en color o forma
+		No deben causar confusión
+
+	# 3.2 Ley de Semejanza	
+
+		Si hay elementos similares, el cerebro entiende que son del mismo grupo
+		Ejemplo los items de un menu de navegacion
+
+
+	# 3.3 Proximidad
+
+		Si hay elementos cerca, el cerebro los detecta como parte del mismo grupo.
+		Separadores: lineas, espacios más largos
+
+	# 3.4 Ley del cierre
+
+		El cerebro cierran las figuras aunque no estén completas
+	
+
+	# 3.5 Ley de la pregnancia
+
+		Debe existir un elemento más resaltante que todos los demás
+
+
+	# 3.6 Ley de la experiencia
+
+		El humano ya tiene experiencia previa y puede reconocer elementos
+
+
+	# 3.7 Ley de la simplicidad
+
+		El cerebro humano va a simplificar lo más posible.
+			Ej.: 81NV3N1D0S 4 N3W Y0RK = Bienvenidos a New York
+
+
+	# 3.8 Ley de la simetria y el orden
+
+		El cerbro busca la simetría
+
+
+	3.9 Ley de la continuidad
+
+		Los elementos que siguen la misma direccion, el cerebrp los asocia cpomo del mismo grupo.
+			Ej.: Un carrousel de películas
+
+
+
+##### 4 El color
+
+	# 4.1 El Color
+
+		Los colores dependen de la iluminación
+		En pantallas, la luz está en la pantalla:
+			Color modo aditivo
+				RGB (Red, Green, Blue)
+					255,255,255 == 2´8, 2´8, 2´8 == 16 millones de colores
+					Es hexadecimal: #RRGGBB
+					Se hablad de Luz
+					Mientras más colores se agregue a la combinación, mas se acerca al blanco	
+					Para PANTALLAS
+
+
+			Color modo sustractivo
+				CMYK (Cyan, Magenta, Yellow, Black)
+					Se habla de tinta
+					Mientras más colores se agregue a la combinación, mas se acerca al negro
+					Para IMPRESORAS
+
+
+	# 4.2 Modo HSL
+
+		Hue (Matiz, Tono del color)   Color azu8l, amarillo, rojo, etc..
+		Saturation (Intensidad del color) Color puro, saturacion 100
+		Light (Luminancia) Color puro, luz 50
+
+		360 grados = 360 colores
+		360 y 0 es el mismo = rojo
+
+
+	# 4.3 Círculo Cromático
+
+
+	# 4.4 Psicología de color
+
+		Varía según la cultura
+		Los colores son asociados a emociones
+		Depende del contexto
+
+	# 4.5 Paletas de color	
+
+		Hay reglas para usar una paleta
+		No deben combinarse al azar
+			1) Crear colores primarios (elementos más importantes)
+			2) Colores de contraste o enfasis (para destacar elementos: error, descuento, ofertas, indicaciones...)
+			3) Colores neutros (Para balancear:grises, negros, blancos)
+		Hay que documentatr cuando se utilizarán los colores
+
+
+	# 4.6 Variaciones de color
+
+		La paleta principal no siempre es suficientes
+		De los colores de la paleta, se pueden crear variuaciones
+
+
+##### 5 La tipografía
+
+	# 5.1 Tipografía, familias y fuentes
+
+		* La tipografía comunica de forma literal (lo que dice el mensaje) y figurado (la forma que tiene, te da mensaje adicional)
+		* TIPOGRAFÍA: Disciplina que estudio las letras, estilos, tipos de letras, etc.
+		* FUENTES: Son los tipos de letras
+		* FAMILIAS TIPOGRÁFICAS: Diversas fuentes, que pertenecen a la misma familia. Tienen rasgos en común
+			- Ej Roboto y Roboto-Condensed
+		* GLIFOS: Cad fuente tiene diferentes glifos. Son figuras que tiene la fuente: abcdeéáñ%
+
+
+	# 5.2 Elementos de la tipografía
+
+		* Lines que indican la altura de las letras
+			-BASELINE: La base de las letras. Ej p g j es diferente a a e r. Es la parte de "abajo de la letra"
+			-MEANLINE: Indica donde termina la letra minúscula
+			-CAPLINE: Indica donde temrine la letra mayúscula 
+
+		* Trancking: La separación de caractéres (LETTERSPACING)
+			-Positivo: más separada la union C  A  R  L  O  S
+			-Negativo: mas estrecha la union CARLOS
+
+		* Kerning: La separación entre las letras por sus "cajas"
+			
+		* Interlineado: Separación entre una linea y la siguiente
+
+
+	# 5.3 Clasificación
+
+		* Google Fonts (fuentes gratuitas)
+
+		* Fontsquirrel (fuentes gratuitas y de paga) https://www.fontsquirrel.com/
+
+		* Adobe Fonts https://fonts.adobe.com/
+
+		* No existe una clasificación específica, pero hay unas clásicas
+
+			- Serif (con serifa o remate): con adornos al final estilizados [clásico, elegante]
+			- Slab Serif (con serifa o remate recot): con adornos al final pero rectos
+			- Sans (sin serifa o remate): sin adornos al final 
+			- Displays: para títulos
+			- Handwriting: escritura a mano
+			- Monospace: caracteres con misma separación horizonal
+			
+	# 5.4 Uso de la tipografía
+
+		Jerarquía: 
+
+
+

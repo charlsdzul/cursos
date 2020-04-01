@@ -1,0 +1,12 @@
+######################################################
+############# EDTEAM: CURSO NODE JS #############
+########################################################
+
+######################################################## 
+######## 2 Crear un servidor básico
+
+*** 2.1 Notaciones comunes de NodeJs
+
+	En la carpeta principal, ejecutar el archivo de entrada
+		node index.js
+
