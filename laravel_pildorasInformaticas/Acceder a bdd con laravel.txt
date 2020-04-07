@@ -1,0 +1,18 @@
+*** ACCEDER A LA BASE DE DATOS POR CONSOLA	
+
+1) Consola: Vagrant up
+2) Consola: Vagrant ssh
+
+3) Consola: mysql -u base_de_datos -p
+4) Consola: ingresar_contraseña
+
+5) Gestionar la base, ver bases, modificar, crear, etc.
+
+
+
+
+
+
+
+
+

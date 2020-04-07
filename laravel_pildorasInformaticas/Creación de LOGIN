@@ -1,0 +1,4 @@
+Creación de LOGIN
+En automático crea el formulario
+
+php artisan make:auth

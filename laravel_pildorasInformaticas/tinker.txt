@@ -1,0 +1,7 @@
+TINKER
+Herramienta de testeo
+
+a) CONSOLA: php artisan tinker
+
+Insertar un registro
+$cliente=App\Cliente::create(['nombre'=>'Antonio', 'apellidos'=>'Fernandez']);

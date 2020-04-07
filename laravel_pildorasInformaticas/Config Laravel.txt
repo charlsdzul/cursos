@@ -1,0 +1,66 @@
+
+1) Instalar VirtualBox
+
+2) Instalar Git
+
+3) Instalar Vagrant
+
+4) Verificar instalación de VirtualBox
+	En consola GIT:  vboxmanage --version
+		Si no encuentra el comando, hay que agregar Virtual Box a las variables de enternos
+			a) Sistema > Configuracion Avanzada del sistema > Opciones Avanzadas > Variables de entono >Variable de usuario para User > path Editar > Nuevo > C:\Program Files\Oracle\VirtualBox
+
+5) Verificar instalación de Vagrant
+	En consola GIT: vagrant --version
+
+6) Descargar paquete homestead
+	En consola GIT: vagrant box add laravel/homestead	
+	En consola GIT: seleccionar virtualizador
+
+7) Descargar/clonar repositorio Homestead desde Github
+	En consola GIT: git clone https://github.com/laravel/homestead.git Homestead
+
+8) Ir a repositorio
+	En consola GIT: cd Homestead
+
+9) Iniciar bash
+	En consola GIT: bash init.sh
+
+10) Verificar claves ssh en carpeta de usuario
+	Carpeta .ssh
+		Si no existen, hay que crearlas
+			a) En consola GIT: ssh-keygen -t rsa -b 4096 -C "c.dzul@hotmail.com"
+			b) En consola GIT: definir l directorio para guardar las claves
+			c) En consola GIT: definir contraseña, puede ser sin nada, solo dar enter.
+
+11) Abrir archivo Homestead.yaml
+	Verificar datos
+		folders:
+			- map: -/code  [esta carpeta es la local, si no existe, crearla. AQUI SE ALMACENAN LOS PROYECTOS LARAVEL]
+			  to: home/vagrant/code/public [esta carpeta es la remota, en la VB]
+
+
+12) Ejecutar vagrant
+	a) ir a carpeta Homestead
+	b) En consola GIT: vagrant up
+		para verificar ssh: vagrant ssh
+		para salir del ssh: exit
+		para suspender: suspend
+		para apagar: vagrant halt
+
+13) Instalar Composer
+	a) https://getcomposer.org/download/
+	b) Verificar la variable de enterno
+
+14) Instalar Laravel
+	***Se tiene que instalar en la carpeta "code" que se creó cuando clonamos el repositorio
+	a) Consola GIT, en directorio Homestead: vagrant up	
+	b) Consola GIT, validar ssh: vagrant ssh
+	c) Consola GIT: cd code
+	d) Via composer, en GIT: composer create-project  laravel/laravel CARPETA_DONDE_SE_INSTALARA (yaml>sites>to
+
+15) Modificar archivo HOST del equipo
+	a) Agregar direccion ip y dominio que viene en el archivo yaml
+		Ej: 192.168.10.10	homestead.test
+	b) Reiniciar la máquina
+	

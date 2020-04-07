@@ -1,0 +1,12 @@
+Agregar phpMyAdmin a Laravel
+
+
+Descargar phpMyAdmin
+Descomprimir en Code
+Modificar Homestead.yaml
+Agregar a SITES:
+    - map: phpmyadmin.test
+      to: /home/vagrant/code/phpMyAdmin
+
+Agregar a archivo Hosts:
+	192.168.10.10	phpmyadmin.test

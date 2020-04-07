@@ -1,0 +1,84 @@
+*** MIGRATIONS
+
+Primero se crean los archivos migratios. Ya que se configuran, se tienen que ejecutar 
+'php artisan migrate', y en automático pasa esa información a la base de datos (ej mysql)
+
+PASOS:
+
+I) Vagrant up
+II) Vagrant ssh
+III) cd code
+IV) cd carpeta_proyecto
+
+1) Crear archivos migratios
+	
+	a) CONSOLA: 
+		(php artisan make:migration nombre_archivo_migrate --create="nombre_tabla")
+		 php artisan make:migration create_articulos_table --create="articulos"
+			* El archivo migration se crea en database>migrations>archivos
+
+2) Modificar y configurar el archivo migrations creado, agregar campos necesarios
+
+	    public function up()
+    		{
+        		Schema::create('users', function (Blueprint $table) {
+            			$table->increments('id');  
+            			$table->timestamps();
+       		 	});
+   		}
+
+
+	    public function up()
+    		{
+       			 Schema::create('users', function (Blueprint $table) {
+            			$table->increments('id');   
+            			$table->string('nombre_articulo');
+            			$table->integer('precio');
+            			$table->string('pais_origen');
+            			$table->text('observaciones');
+            			$table->timestamps();
+        		});
+    		}
+
+
+3) Ejecutar comando: php artisan migrate
+
+	a) CONSOLA: php artisan migrate
+		*Si la ejecución es exitosa, ya debe estar creada nuestra tabla en la bdd :)
+
+
+4) ELIMINAR LA MIGRACIÓN ANTERIOR: php artisan migrate:rollback
+
+5) MODIFICAR TABLA PARA AGREGAR UN CAMPOS
+	
+	php artisan make:migration agrega_seccion_articulo --table='articulos'
+
+6) ELIMINAR VARIAS MIGRACIONES: php artisan migrate:reset
+
+7) VER MIGRACIONES HECHAS O PENDIENTES: php artisan migrate:status
+
+
+
+
+
+
+Crear una tabla:
+	Crear un archivo migrations
+	Configurar el archivo migrations
+	Ejecutar: php artisan migrate
+En Laravel, se encuentra en database>migrations>archivos
+
+
+
+
+
+** USO DE PHP ARTISAN PARA CREAR MIGRACIONES
+
+Vagrant up
+Vagrant ssh
+Ubicar carpeta del sitio: vagrant@homestead:~/code/CursoLaravel2$
+
+
+
+
+* Ver lista de comandos disponibles: php artisan list

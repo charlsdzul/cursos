@@ -1,0 +1,20 @@
+
+1) Crear Modelo (singular del nombre de la tabla)
+
+	php artisan make:model Articulo
+
+2) El archivo/clase se crea en la carpeta app/}
+
+3) En el archivo de rutas, ejemplo:
+
+	//USO de ELOQUENT
+Route::get('/leer', function(){
+  $articulos=Articulo::all();
+
+
+
+  foreach($articulos as $articulo){
+      echo $articulo->nombre_articulo. ". Precio: " .$articulo->precio. "<br>";
+      //nombre_articulo es el campo de la tabla
+  }
+});
