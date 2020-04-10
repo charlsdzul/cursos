@@ -1,0 +1,64 @@
+###### Introducción a la seguridad en PHP
+
+# Aspectos de configuración en PHP (recomendaciones)
+
+    * Archivo "php.ini"
+        display_errors: muestra errores o no
+        short_open_tag: siempre usar etiquetas largas " <?php   ?> "
+        max_execution_time: default 30 seg, puediera ser menos
+        max_limit: limite de memoria para cada script, default 128M
+        file_upload: permite o no subir archivos
+        upload_tmp_dire: define la ruta temporal de los archivos subidos
+        upload_max_filesize: define el tamaño máximo
+        allow_url_include: 
+        include_path:
+        session.save_handler:
+
+
+# Seguridad em formularios
+    * Validar parametros en backend: longitud, si es esperado o no
+
+# Seguridad en carga de archivos
+    * Reducir el upload_max_filesize
+    * Validar extensiones de archivos permitidos, validar MIMETYPE
+    * No mostrar el motivo cuando es error por tipo
+        $finfo = new finfo(FILEINFO_MIME_TYPE)
+    * Generar un nombre propio para la imagen    
+
+
+##### Seguridad y ataques iniciales a una aplicación PHP
+
+# Seguridad y bases de datos en PHP
+
+    * Restringir acceso a la BDD por ip
+    * Evitar conexiones remotas PHP
+
+# Inyección SQL: Ejecutar SQL en variables de entrada
+
+    * Asignar GET recibido a una variable
+    * settype(var, type) // Asignar tipo de datos
+    * Usar consultas preparadas
+
+# Inyección HTML: Guardar en BDD contenido HTML con scripts!
+
+    *htmlentities():
+    *filtrar contenido para que no se ejecute JS
+
+# Inyección PHP: Inyectar contenido en archivos con contenido PHP o desde otros archivos externos
+    * conten.txt
+        contenido:   <?php    phpinfo()  ?>
+        contenido:   <?php    echo `dir`)  ?>
+        contenido:   <?php    echo file_get_contents('connection.php')  ?>
+
+    Falla 1:
+        Si vamos hacer include de un archivo subido, hay que agregar:
+            contenido:   <?php  include('./'.$file))  ?>  
+
+    Falla 2:
+        En php.ini 
+            allow_url_fopen = on
+            allow_url_include = of
+
+# Revelación de código fuente
+    * Es porque se 'cae' módulo Apache, y mostrara el codigo de PHP
+    * SOLUCIÓN: 
